@@ -1,22 +1,32 @@
 <script>
-	import Nav from '../components/Nav.svelte';
+	import Header from '../components/Header.svelte';
+	import Toolbar from '../components/Toolbar.svelte';
 
 	export let segment;
 </script>
 
 <style>
+	app {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
 	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
+		flex: 1;
 	}
 </style>
 
-<Nav {segment}/>
+<app>
+	<Header {segment}/>
 
-<main>
-	<slot></slot>
-</main>
+	<main>
+		<slot></slot>
+	</main>
+
+	<Toolbar {segment} />
+</app>
